@@ -35,3 +35,28 @@ public class Timer : MonoBehaviour
     }
 
 }
+
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+// using TMPro;
+// using UnityEngine.UI;
+
+// public class Timer : MonoBehaviour
+// {
+//     public float timeRemaining = 60; // Set the initial time to 60 seconds
+//     [SerializeField] private TextMeshProUGUI _textTemps; // Reference to the UI Text component
+
+//     void Update()
+//     {
+//         if (timeRemaining > 0)
+//         {
+//             timeRemaining -= Time.deltaTime;
+
+//             float minutes = Mathf.FloorToInt(timeRemaining / 60);
+//             float seconds = Mathf.FloorToInt(timeRemaining % 60);
+
+//             _textTemps.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+//         }
+//     }
+// }
