@@ -7,32 +7,41 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private TextMeshProUGUI _textTemps;
-        private float _tempMax = 10;
+        [SerializeField] private TextMeshProUGUI _textTemps;
+        // private float _tempMax = 10;
         [SerializeField] private float _tempsEcoule;
         [SerializeField] private Image _image;
     void Start()
     {
-        
+        _tempsEcoule=10;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Decompte();
     }
     void Decompte()
-    {
-        _tempsEcoule += Time.deltaTime*10;
+        {
+            if(_tempsEcoule>=0 & _tempsEcoule<=10){
 
-        int _minutes = Mathf.FloorToInt(_tempsEcoule / 60);
-        _textTemps.text = _minutes.ToString();
+                _tempsEcoule += Time.deltaTime*-1;
 
-        int _secondes = Mathf.FloorToInt(_tempsEcoule % 60);
-        // _textTemps.text = _minutes.ToString
-        _textTemps.text = string.Format("{0:00}", _secondes);
-        _image.fillAmount += 0.025f;
-    }
+                int _minutes = Mathf.FloorToInt(_tempsEcoule / 60);
+                _textTemps.text = _minutes.ToString();
+
+                int _secondes = Mathf.FloorToInt(_tempsEcoule % 60);
+                // _textTemps.text = _minutes.ToString
+                _textTemps.text = string.Format("{0:00}:{1:00}", _minutes, _secondes);
+                _image.fillAmount += 0.025f;
+            }
+
+            else if(_tempsEcoule<0){
+                Debug.Log("gdj");
+            }
+        }
+
+    
 
 }
 
